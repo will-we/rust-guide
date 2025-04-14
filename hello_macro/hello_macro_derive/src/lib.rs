@@ -7,6 +7,8 @@ use syn::DeriveInput;
 
 #[proc_macro_derive(HelloMacro)]
 pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
+    // 注意这里使用打印语法树的结构，需要在重新编译生效
+    println!("{:#?}", input);
     // 基于 input 构建 AST 语法树
     let ast:DeriveInput = syn::parse(input).unwrap();
 
